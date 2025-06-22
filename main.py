@@ -726,9 +726,9 @@ async def txt_handler(bot: Client, m: Message):
                     url = api_resp.json().get("url")
                     if not url:
                             raise Exception("Empty response from API")
-                            except Exception as e:
-                            await m.reply_text(f"❌ Failed to extract ClassPlus link\nReason: {str(e)}")
-                             continue
+                except Exception as e:
+                    await m.reply_text(f"❌ Failed to extract ClassPlus link\nReason: {str(e)}")
+                    continue
                 
             
             elif 'media-cdn.classplusapp.com' in url or 'media-cdn-alisg.classplusapp.com' in url or 'media-cdn-a.classplusapp.com' in url: 
