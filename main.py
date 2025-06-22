@@ -1071,13 +1071,13 @@ async def text_handler(bot: Client, m: Message):
            
             elif 'videos.classplusapp' in url:
                 try:
-    api_resp = requests.post("https://ugxclassplusapi.vercel.app/", json={"url": url})
-    url = api_resp.json().get("url")
-    if not url:
-        raise Exception("Empty response from API")
-except Exception as e:
-    await m.reply_text(f"❌ Failed to extract ClassPlus link\nReason: {str(e)}")
-    continue
+                    api_resp = requests.post("https://ugxclassplusapi.vercel.app/", json={"url": url})
+                    url = api_resp.json().get("url")
+                    if not url:
+                        raise Exception("Empty response from API")
+                except Exception as e:
+                    await m.reply_text(f"❌ Failed to extract ClassPlus link\nReason: {str(e)}")
+                    continue
             
             elif 'media-cdn.classplusapp.com' in url or 'media-cdn-alisg.classplusapp.com' in url or 'media-cdn-a.classplusapp.com' in url: 
                 headers = {'host': 'api.classplusapp.com', 'x-access-token': f'{raw_text4}', 'accept-language': 'EN', 'api-version': '18', 'app-version': '1.4.73.2', 'build-number': '35', 'connection': 'Keep-Alive', 'content-type': 'application/json', 'device-details': 'Xiaomi_Redmi 7_SDK-32', 'device-id': 'c28d3cb16bbdac01', 'region': 'IN', 'user-agent': 'Mobile-Android', 'webengage-luid': '00000187-6fe4-5d41-a530-26186858be4c', 'accept-encoding': 'gzip'}
