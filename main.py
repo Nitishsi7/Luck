@@ -721,14 +721,14 @@ async def txt_handler(bot: Client, m: Message):
                 url = response.json()['url']  
            
             elif "classplusapp.com" in url or "media-cdn.classplusapp.com" in url:
-    try:
-        api_resp = requests.post("https://ugxclassplusapi.vercel.app/", json={"url": url})
-        url = api_resp.json().get("url")
-        if not url:
-            raise Exception("Empty response from API")
-    except Exception as e:
-        await m.reply_text(f"❌ Failed to extract ClassPlus link\nReason: {str(e)}")
-        continue
+                try:
+                    api_resp = requests.post("https://ugxclassplusapi.vercel.app/", json={"url": url})
+                    url = api_resp.json().get("url")
+                    if not url:
+                            raise Exception("Empty response from API")
+                            except Exception as e:
+                            await m.reply_text(f"❌ Failed to extract ClassPlus link\nReason: {str(e)}")
+                             continue
                 
             
             elif 'media-cdn.classplusapp.com' in url or 'media-cdn-alisg.classplusapp.com' in url or 'media-cdn-a.classplusapp.com' in url: 
